@@ -1,0 +1,5 @@
+pt_content_feedback.detail:
+  route_name: pt_content_feedback.detail
+  title: 'Feedback'
+  base_route: entity.node.canonical
+  weight: 100

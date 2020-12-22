@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains pt_content_feedback.install.
+ */
+
+ use Drupal\pt_content_feedback\ContentFeedback;
+
+/**
+ * Implements hook_schema().
+ */
+function pt_content_feedback_schema() {
+  $schema[ContentFeedback::TABLE_NAME] = [
+    'description' => 'The base table for nodes.',
+    'fields' => [
+      'entity_id' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => [
+      'entity_id',
+    ],
+  ];
+
+  foreach (ContentFeedback::SCORES as $scoreName) {
+    $schema[ContentFeedback::TABLE_NAME]['fields'][$scoreName] = [
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0,
+    ];
+  }
+
+  return $schema;
+}

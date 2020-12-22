@@ -1,0 +1,26 @@
+
+pt_content_feedback.store:
+  path: '/pt/content-feedback/{entityId}/{score}'
+  defaults:
+    _controller: '\Drupal\pt_content_feedback\Controller\ContentFeedbackController::store'
+    _title: 'Save Content Score Ajax link'
+  requirements:
+    _permission: 'access content'
+
+pt_content_feedback.detail:
+  path: '/node/{node}/feedback'
+  defaults:
+    _controller: '\Drupal\pt_content_feedback\Controller\ContentFeedbackController::show'
+    _title: 'Content feedback detail'
+  requirements:
+    _permission: 'view detail node feedback'
+
+pt_content_feedback.list:
+  path: '/admin/pt/content-feedback'
+  defaults:
+    _controller: '\Drupal\pt_content_feedback\Controller\ContentFeedbackController::list'
+    _title: 'All Content feedback list'
+  requirements:
+    _permission: 'view all node feedback'
+  options:
+    _admin_route: TRUE

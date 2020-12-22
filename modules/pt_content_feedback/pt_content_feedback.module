@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains pt_content_feedback.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\pt_content_feedback\ContentFeedback;
+
+/**
+ * Implements hook_help().
+ */
+function pt_content_feedback_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pt_content_feedback module.
+    case 'help.page.pt_content_feedback':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Content Feedback') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function pt_content_feedback_node_insert(EntityInterface $node) {
+  try {
+    $connection = \Drupal::database();
+    $connection->insert(ContentFeedback::TABLE_NAME)
+      ->fields([
+        'entity_id' => $node->id(),
+      ])
+      ->execute();
+  }
+  catch (Exception $e) {
+    \Drupal::messenger()->addMessage(t('An error occurred please try again later.'), 'error');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function pt_content_feedback_node_delete(EntityInterface $node) {
+  try {
+    $connection = \Drupal::database();
+    $connection->delete(ContentFeedback::TABLE_NAME)
+      ->condition('entity_id', $node->id(), '=')
+      ->execute();
+  }
+  catch (Exception $e) {
+    \Drupal::messenger()->addMessage(t('An error occurred please try again later.'), 'error');
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pt_content_feedback_theme($existing, $type, $theme, $path) {
+  return [
+    'pt_content_feedback' => [
+      'variables' => ['nid' => NULL],
+    ],
+  ];
+}

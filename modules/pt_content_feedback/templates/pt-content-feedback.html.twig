@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Content feedback custom block.
+ */
+#}
+{{ attach_library('pt_content_feedback/pt_content_feedback-block') }}
+<div class="feedback-block wrapper container-fluid">
+  <div class="inner-container">
+    <h3 class="title">{{ "was this information useful?" | t }}</h3>
+    <h4 class="subtitle">{{ "Tell Us your experience with this procedure." | t }}</h4>
+    <div id="feedback-scores" class="feedback-scores-container">
+      <div class="feedback-container">
+        <a class="use-ajax icon-not-useful" href="/pt/content-feedback/{{ nid }}/not_useful"></a>
+        <h4 class="title">{{ "Not Useful" | t }}</h4>
+      </div>
+      <div class="feedback-container">
+        <a class="use-ajax icon-dont-care" href="/pt/content-feedback/{{ nid }}/dont_care"></a>
+        <h4 class="title">{{ "I do not care" | t }}</h4>
+      </div>
+      <div class="feedback-container">
+        <a class="use-ajax icon-useful" href="/pt/content-feedback/{{ nid }}/useful"></a>
+        <h4 class="title">{{ "Useful" | t }}</h4>
+      </div>
+      <div class="feedback-container">
+        <a class="use-ajax icon-really-useful" href="/pt/content-feedback/{{ nid }}/really_useful"></a>
+        <h4 class="title">{{ "Really Useful" | t }}</h4>
+      </div>
+    </div>
+    <div id="feedback-message" class="feedback-message">
+      <p>{% trans %}Thank you for your cooperation{% endtrans %}</p>
+    </div>
+  </div>
+</div>
