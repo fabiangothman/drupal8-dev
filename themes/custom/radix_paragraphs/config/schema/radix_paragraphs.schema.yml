@@ -1,0 +1,5 @@
+# Schema for the configuration files of the radix_paragraphs theme.
+
+radix_paragraphs.settings:
+  type: theme_settings
+  label: 'radix_paragraphs settings'

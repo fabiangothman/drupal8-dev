@@ -1,0 +1,10 @@
+style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/radix_paragraphs.style.css: {}
+  js:
+    assets/js/radix_paragraphs.script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
