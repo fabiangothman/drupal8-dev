@@ -1,0 +1,8 @@
+
+view all node feedback:
+  title: 'View all feedback'
+  description: 'Allow access to view all feedback'
+
+view detail node feedback:
+  title: 'View node feedback'
+  description: 'Allow access to view node feedback'

@@ -1,0 +1,13 @@
+pt_content_feedback-block:
+  css:
+    state:
+      css/pt_content_feedback-block.css: {}
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/drupal.ajax
+
+pt_content_feedback-detail:
+  css:
+    theme:
+      css/pt_content_feedback-detail.css: {}
