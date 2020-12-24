@@ -1,0 +1,5 @@
+my_module.link:
+  title: 'My module'
+  description: 'This is a internal link creation example'
+  parent: system.admin_structure
+  route_name: my_module.routing

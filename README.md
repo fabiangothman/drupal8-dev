@@ -5,7 +5,10 @@
 
 Fabian's develop enviroment for Drupal 8.
 
-This project is about a custom Drupal 8 widget using Paragraph module, Redix template and subtheme component creation with Bootstrap, webpack and Twig!.
+### This project is about:
+- Drupal theme customization
+- Custom Drupal 8 widget using Paragraph module, Redix template and subtheme component creation with Bootstrap, webpack and Twig!.
+- Custom Drupal module to show a new page including it to an admin/structure menu 
 
 ## Check before
 - Windows (https://www.drupal.org/node/594744):
@@ -26,8 +29,9 @@ This project is about a custom Drupal 8 widget using Paragraph module, Redix tem
 ## Database
 There is a base database on the root project called drupal_test.sql. Import it directly into your MySQL/MariaDB database.
 
-# Process
+# Paragraph Process
 - composer require drupal/paragraphs
+- Create the paragraph content (squeleton) via admin
 - composer require drupal/radix
 - drush en components
 - drush --include="themes/contrib/radix" radix:create radix_paragraphs
@@ -64,3 +68,18 @@ There is a base database on the root project called drupal_test.sql. Import it d
     - drush cr
 - Use paragraphs library
     - composer require drupal/entity_usage
+
+# Module process
+- Create module folder into /modules/custom/my_module
+- Create a my_module.info.yml at root (Contains all module/theme information, compatibility)
+- Create a my_module.routing.yml at root (Contains all routing rules and Controllers)
+    - https://www.drupal.org/docs/drupal-apis/routing-system/structure-of-routes
+    - You can pass arguments to the controller
+- Create Controller/s for module
+- Erase cache always
+- Create a menu into Structure page
+    - Create links file at root:
+        - my_module.links.menu.yml
+
+
+https://www.drupal.org/docs/drupal-apis/routing-system/structure-of-routes
